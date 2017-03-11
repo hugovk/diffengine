@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals
 import os
 import re
 import setup
@@ -69,7 +71,7 @@ def test_html_diff():
 def test_many_to_many():
 
     # these two feeds share this entry, we want diffengine to support
-    # multiple feeds for the same content, which is fairly common at 
+    # multiple feeds for the same content, which is fairly common at
     # large media organizations with multiple topical feeds
     url="https://www.washingtonpost.com/classic-apps/how-a-week-of-tweets-by-trump-stoked-anxiety-moved-markets-and-altered-plans/2017/01/07/38be8e64-d436-11e6-9cb0-54ab630851e8_story.html"
 

@@ -3,6 +3,8 @@
 
 # maybe this module should be broken up into multiple files, or maybe not ...
 
+from __future__ import print_function, unicode_literals
+
 UA = "diffengine/0.0.42 (+https://github.com/docnow/diffengine)"
 
 import os
@@ -27,7 +29,14 @@ import unicodedata
 from peewee import *
 from datetime import datetime, timedelta
 from selenium import webdriver
-from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
+
+try:
+    # Python 3
+    from urllib2.parse import urlparse, urlunparse, parse_qs, urlencode
+except ImportError:
+    # Python 2
+    from urllib import urlencode
+    from urlparse import urlparse, urlunparse, parse_qs
 
 home = None
 config = {}
@@ -516,7 +525,7 @@ def _fingerprint(s):
     # for use during compararison
     s = _normal(s)
     s = bleach.clean(s, tags=[], strip=True)
-    s = re.sub(r'\s+', '', s, flags=re.MULTILINE)
+    s = re.sub(r'[\s]+', '', s, flags=re.MULTILINE)
     s = s.translate(punctuation)
     return s
 
