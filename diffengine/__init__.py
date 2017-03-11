@@ -516,8 +516,14 @@ def _normal(s):
 def _equal(s1, s2):
     return _fingerprint(s1) == _fingerprint(s2)
 
-punctuation = dict.fromkeys(i for i in range(sys.maxunicode)
+try:
+    # Python 3
+    punctuation = dict.fromkeys(i for i in range(sys.maxunicode)
         if unicodedata.category(chr(i)).startswith('P'))
+except TypeError:
+    # Python 2
+    punctuation = dict.fromkeys(i for i in range(sys.maxunicode)
+        if unicodedata.category(unichr(i)).startswith('P'))
 
 def _fingerprint(s):
     # make sure the string has been normalized, bleach everything, remove all
