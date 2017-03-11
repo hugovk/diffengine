@@ -1,7 +1,4 @@
 import sys
-if sys.version_info < (3,0):
-    sys.exit('Sorry, diffengine runs on Python 3')
-
 
 from setuptools import setup, find_packages
 
