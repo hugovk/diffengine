@@ -531,7 +531,7 @@ def _fingerprint(s):
     # for use during compararison
     s = _normal(s)
     s = bleach.clean(s, tags=[], strip=True)
-    s = re.sub(r'[\s]+', '', s, flags=re.MULTILINE)
+    s = re.sub(r'[\s\u00A0]+', '', s, flags=re.MULTILINE)
     s = s.translate(punctuation)
     return s
 
