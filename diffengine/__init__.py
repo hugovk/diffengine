@@ -32,7 +32,7 @@ from selenium import webdriver
 
 try:
     # Python 3
-    from urllib2.parse import urlparse, urlunparse, parse_qs, urlencode
+    from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
 except ImportError:
     # Python 2
     from urllib import urlencode
