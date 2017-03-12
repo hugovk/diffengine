@@ -5,6 +5,7 @@ python:
 cache: pip
 language: python
 install:
+  - pip install MarkupSafe
   - pip install setuptools
   - pip install olefile
   - CFLAGS="-O0" pip install lxml # Speedup CI install
